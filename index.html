@@ -26,17 +26,20 @@ h1{margin:0;font-family:var(--serif);font-size:26px;font-weight:600}
 .tagline{margin:12px 0 0;max-width:44ch;font-family:var(--serif);font-size:18px;line-height:1.8;
   color:var(--muted);text-wrap:pretty}
 .rows{display:flex;flex-direction:column;margin-top:52px;padding-top:8px;border-top:1px solid var(--rule)}
-a.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
-.row-title{font-size:16px;color:var(--link)}
-a.row:hover .row-title{text-decoration:underline;text-underline-offset:3px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:4px 14px;align-items:baseline;
+  padding:18px 0;border-bottom:1px solid var(--rule)}
+.row-title{font-size:16px;color:var(--link);text-decoration:none}
+.row-title:hover{text-decoration:underline;text-underline-offset:3px}
 .row-host{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.row-gh{display:inline-flex;align-self:center;color:var(--muted)}
+.row-gh:hover{color:var(--text)}
+.row-gh svg{width:16px;height:16px;fill:currentColor}
 .row-sum{grid-column:1/-1;font-size:14px;line-height:1.65;color:var(--muted)}
 footer{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--mono);font-size:12px}
 footer a{color:var(--muted)}
 @media (max-width:520px){
   main{padding:56px 22px 72px}
-  a.row{grid-template-columns:1fr}
+  .row{grid-template-columns:minmax(0,1fr) auto}
   .row-host{display:none}
 }
 </style>
@@ -46,42 +49,57 @@ footer a{color:var(--muted)}
   <h1>juniq</h1>
   <p class="tagline">만든 것과 쓴 것을 여기 모아 둡니다.</p>
 
+  <svg style="display:none"><symbol id="gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol></svg>
+
   <div class="rows">
-    <a class="row" href="https://wiki.juniq.im/">
-      <span class="row-title">위키</span>
+    <div class="row">
+      <a class="row-title" href="https://wiki.juniq.im/">위키</a>
       <span class="row-host">wiki.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/wiki" aria-label="위키 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">생각을 적고 계속 고쳐 쓰는 곳.</span>
-    </a>
-    <a class="row" href="https://note.juniq.im/">
-      <span class="row-title">노트</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://note.juniq.im/">노트</a>
       <span class="row-host">note.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/note" aria-label="노트 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">읽은 것과 옮긴 것. 글 한 편이 노트 하나.</span>
-    </a>
-    <a class="row" href="https://thinkthink.juniq.im/">
-      <span class="row-title">thinkthink</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://daily.juniq.im/">매일 뉴스</a>
+      <span class="row-host">daily.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/daily-news" aria-label="매일 뉴스 저장소"><svg><use href="#gh"/></svg></a>
+      <span class="row-sum">보유 종목 뉴스를 매일 아침 모은다. 사람이 아니라 배치가 쓴다.</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://thinkthink.juniq.im/">thinkthink</a>
       <span class="row-host">thinkthink.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/thinkthink" aria-label="thinkthink 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">생각을 기록하는 도구.</span>
-    </a>
-    <a class="row" href="https://tastepicker.juniq.im/">
-      <span class="row-title">tastepicker</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://tastepicker.juniq.im/">tastepicker</a>
       <span class="row-host">tastepicker.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/tastepicker" aria-label="tastepicker 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">내 취향에 맞는 큐레이터를 내가 고르고, 그가 고른 것을 본다.</span>
-    </a>
-    <a class="row" href="https://juniqlim.github.io/stocknumbers/">
-      <span class="row-title">stocknumbers</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://juniqlim.github.io/stocknumbers/">stocknumbers</a>
       <span class="row-host">juniqlim.github.io</span>
+      <a class="row-gh" href="https://github.com/juniqlim/stocknumbers" aria-label="stocknumbers 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">관심 기업의 숫자를 들여다보는 곳.</span>
-    </a>
-    <a class="row" href="https://juniqlim.github.io/quant-screener/">
-      <span class="row-title">quant-screener</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://juniqlim.github.io/quant-screener/">quant-screener</a>
       <span class="row-host">juniqlim.github.io</span>
+      <a class="row-gh" href="https://github.com/juniqlim/quant-screener" aria-label="quant-screener 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">한국 주식을 세 가지 전략으로 훑어 순위를 매긴다.</span>
-    </a>
-    <a class="row" href="https://resume.juniq.im/">
-      <span class="row-title">이력서</span>
+    </div>
+    <div class="row">
+      <a class="row-title" href="https://resume.juniq.im/">이력서</a>
       <span class="row-host">resume.juniq.im</span>
+      <a class="row-gh" href="https://github.com/juniqlim/resume" aria-label="이력서 저장소"><svg><use href="#gh"/></svg></a>
       <span class="row-sum">해온 일.</span>
-    </a>
+    </div>
   </div>
 
   <footer>
